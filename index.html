@@ -20,8 +20,8 @@
   </style>
 </head>
 <body>
-  <img id="bell" src="bell_up.jpg" alt="Bell" onmousedown="bellDown()" onmouseup="bellUp()" ontouchstart="bellDown()" ontouchend="bellUp()">
-  <script>
+  <img id="bell" src="bell_up.jpg" alt="Bell" draggable="false"/>
+  <script type="text/javascript">
     const bell = document.getElementById("bell");
     const dingSound = new Audio("ding.mp3");
 
@@ -35,6 +35,16 @@
     function bellUp() {
       bell.src = "bell_up.jpg";
     }
+
+    bell.addEventListener("pointerdown", bellDown);
+    bell.addEventListener("pointerup", bellUp);
+    bell.addEventListener("pointerleave", bellUp);
+    bell.addEventListener("touchstart", (event) => {
+      event.preventDefault();
+    });
+    bell.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+    });
   </script>
 </body>
 </html>
