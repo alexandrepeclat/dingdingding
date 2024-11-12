@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bell Sound</title>
+  <style>
+    body {
+	  display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+	  margin: 0;
+    }
+    img {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img id="bell" src="bell_up.jpg" alt="Bell" onmousedown="bellDown()" onmouseup="bellUp()">
+  <script>
+    const bell = document.getElementById("bell");
+    const dingSound = new Audio("ding.mp3");
+
+    function bellDown() {
+      bell.src = "bell_down.jpg";
+      dingSound.pause();
+      dingSound.currentTime = 0;
+      dingSound.play();
+    }
+
+    function bellUp() {
+      bell.src = "bell_up.jpg";
+    }
+  </script>
+</body>
+</html>
